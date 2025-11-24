@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a6f859d4f6013074da82de9091d3f09c
+timeCreated: 1473691359
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 127325
+  packageName: Particle Pack
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/EffectExamples/Misc Effects/Prefabs/ElectricalSparks.prefab
+  uploadId: 691001

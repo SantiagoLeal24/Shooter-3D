@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d0622bd8c2050ac43b90260954b7c626
+timeCreated: 1474384978
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 127325
+  packageName: Particle Pack
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/EffectExamples/WeaponEffects/Materials/GoopStreak.mat
+  uploadId: 691001
