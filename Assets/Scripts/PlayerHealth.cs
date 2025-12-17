@@ -1,15 +1,33 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
 
     public int HP = 100;
     public GameObject HurtScreen;
-    
-   public void TakeDamage(int damageAmount)
+
+    public Slider barraDeSalud;
+
+    private void Start()
+    {
+        if (barraDeSalud != null)
+        {
+            barraDeSalud.maxValue = HP;
+            barraDeSalud.value = HP;
+        }
+    }
+
+    public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
+
+        if (barraDeSalud != null)
+        {
+            barraDeSalud.value = HP;
+
+        }
         if (HP <= 0)
         {
             print("Tai muerto");

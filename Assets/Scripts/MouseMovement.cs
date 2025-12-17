@@ -1,49 +1,5 @@
 using UnityEngine;
 
-//public class MouseMovement : MonoBehaviour
-//{
-//    public float sensibilidadMouse = 100f;
-
-//    float rotacionX = 0f;
-//    float rotacionY = 0f;
-
-//    public float topClamp = -90f;
-//    public float bottomClamp = 90f;
-
-//    void Start()
-//    {
-//        //mouse invisible y en el medio
-
-//        Cursor.lockState = CursorLockMode.Locked;
-//    }
-
-//    void Update()
-//    {
-//        //mouse input
-
-//        float MouseX = Input.GetAxis("Mouse X") * sensibilidadMouse * Time.deltaTime;
-
-//        float MouseY = Input.GetAxis("Mouse Y") * sensibilidadMouse * Time.deltaTime;
-
-//        //mirar arriba o abajo
-
-//        rotacionX -= MouseY;
-
-//        //bloquear la rotacion
-
-//        rotacionX = Mathf.Clamp(rotacionX, topClamp, bottomClamp);
-
-//        //mirar a los costados
-
-//        rotacionY -= MouseX;
-
-//        //aplicar rotaciones al transform
-
-//        transform.localRotation = Quaternion.Euler(rotacionX, rotacionY, 0f);
-
-//    }
-//}
-
 
 public class MouseMovement : MonoBehaviour
 {

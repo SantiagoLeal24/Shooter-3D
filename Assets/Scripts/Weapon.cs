@@ -88,10 +88,6 @@ public class Weapon : MonoBehaviour
                 Recargar();
             }
 
-            //if (readyToShoot && isShooting == false && estaRecargando == false)
-            // {
-            //     Recargar();
-            // }
 
             if (balasRestantes <= 0 && estaRecargando == false)
             {

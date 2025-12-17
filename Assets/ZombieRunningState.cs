@@ -14,15 +14,33 @@ public class ZombieRunningState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        else
+        {
+            Debug.LogError("¡CUIDADO! No encuentro al Player. ¿Le pusiste el Tag 'Player' a tu personaje?");
+        }
+
         agent = animator.GetComponent<NavMeshAgent>();
 
-        agent.speed = velocidadZombie;
+        if (agent != null)
+        {
+
+            agent.speed = velocidadZombie;
+
+            agent.stoppingDistance = distanciaAtaque;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (player == null || agent == null) return;
+
         agent.SetDestination(player.position);
         
 
@@ -47,7 +65,10 @@ public class ZombieRunningState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(animator.transform.position);
+        if (agent != null)
+        {
+            agent.ResetPath();
+        }
     }
 
 

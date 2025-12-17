@@ -8,6 +8,11 @@ public class Enemy : MonoBehaviour
     public bool isDead;
 
     [SerializeField] private int HP = 100;
+
+    public GameObject chip;
+
+    public float alturaDrop = 2f;
+
     private Animator animator;
 
     private NavMeshAgent navAgent;
@@ -27,9 +32,9 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("DIE");
             Destroy(gameObject, 4f);
 
+            SoltarObjeto();
+
             isDead = true;
-
-
         }
         else
         {
@@ -37,5 +42,14 @@ public class Enemy : MonoBehaviour
         }
 
 
+    }
+
+    void SoltarObjeto()
+    {
+        if (chip != null)
+        {
+            Vector3 posicionDrop = transform.position + (Vector3.up * alturaDrop);
+            Instantiate(chip, posicionDrop, Quaternion.identity);
+        }
     }
 }

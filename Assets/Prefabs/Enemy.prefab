@@ -1467,6 +1467,7 @@ MonoBehaviour:
   zombieHurt: {fileID: 0}
   isDead: 0
   HP: 100
+  chip: {fileID: 2318887921700471238, guid: 5be12bd5c504b7c4aa49a4e2f2bb4164, type: 3}
 --- !u!136 &8191867171993583077
 CapsuleCollider:
   m_ObjectHideFlags: 0
