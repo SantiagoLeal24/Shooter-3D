@@ -29,12 +29,17 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0)
         {
+            isDead = true;
+
             animator.SetTrigger("DIE");
-            Destroy(gameObject, 4f);
 
             SoltarObjeto();
 
-            isDead = true;
+            Destroy(gameObject, 2f);
+
+            
+
+            
         }
         else
         {

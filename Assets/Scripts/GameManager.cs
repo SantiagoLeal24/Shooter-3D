@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject pantallaFinal;
 
+    public GameObject panelPausa;
+    private bool estaPausado = false;
+
     public TextMeshProUGUI textoPuntaje;
     private int puntajeTotal = 0;
 
@@ -28,6 +31,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
        ActualizarTextoPuntaje();
+
+        Time.timeScale = 1.0f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
      public void SumarPuntos(int cantidad)
@@ -37,6 +45,50 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !pantallaFinal.activeSelf && !panelVictoria.activeSelf)
+        {
+            if (estaPausado)
+            {
+                Reanudar();
+            }
+            else
+            {
+                Pausar();
+            }
+        }
+    }
+
+    public void Pausar()
+    {
+        estaPausado = true;
+        panelPausa.SetActive(true);
+        Time.timeScale = 0.0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Reanudar()
+    {
+        estaPausado = false;
+        panelPausa.SetActive(false);
+        Time.timeScale = 1.0f;
+
+        Cursor.lockState = CursorLockMode .Locked;
+        Cursor.visible = false;
+
+    }
+
+    public void IrAlMenuPrincipal()
+    {
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("Menu Principal");
+    }
     private void ActualizarTextoPuntaje()
     {
         if (textoPuntaje != null)
